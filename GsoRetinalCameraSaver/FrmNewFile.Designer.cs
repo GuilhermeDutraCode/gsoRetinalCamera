@@ -43,6 +43,9 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.labFolder = new System.Windows.Forms.Label();
             this.txtFolder = new System.Windows.Forms.TextBox();
+            this.btnMerge = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtInitial = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +68,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(103, 202);
+            this.btnSave.Enabled = false;
+            this.btnSave.Location = new System.Drawing.Point(103, 245);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 2;
@@ -80,7 +84,7 @@
             this.txtFilename.Location = new System.Drawing.Point(103, 45);
             this.txtFilename.Name = "txtFilename";
             this.txtFilename.ReadOnly = true;
-            this.txtFilename.Size = new System.Drawing.Size(409, 20);
+            this.txtFilename.Size = new System.Drawing.Size(408, 20);
             this.txtFilename.TabIndex = 3;
             // 
             // label3
@@ -97,9 +101,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(33, 126);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "SURNAME:";
+            this.label4.Text = "Surname:";
             // 
             // label5
             // 
@@ -117,7 +121,7 @@
             this.cmbSurname.FormattingEnabled = true;
             this.cmbSurname.Location = new System.Drawing.Point(103, 123);
             this.cmbSurname.Name = "cmbSurname";
-            this.cmbSurname.Size = new System.Drawing.Size(409, 21);
+            this.cmbSurname.Size = new System.Drawing.Size(408, 21);
             this.cmbSurname.TabIndex = 9;
             this.cmbSurname.TextChanged += new System.EventHandler(this.cmbSurname_TextChanged);
             // 
@@ -128,14 +132,14 @@
             this.cmbFirstname.FormattingEnabled = true;
             this.cmbFirstname.Location = new System.Drawing.Point(103, 149);
             this.cmbFirstname.Name = "cmbFirstname";
-            this.cmbFirstname.Size = new System.Drawing.Size(409, 21);
+            this.cmbFirstname.Size = new System.Drawing.Size(408, 21);
             this.cmbFirstname.TabIndex = 10;
             this.cmbFirstname.TextChanged += new System.EventHandler(this.cmbFirstname_TextChanged);
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(330, 202);
+            this.btnCancel.Location = new System.Drawing.Point(330, 245);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(182, 23);
             this.btnCancel.TabIndex = 11;
@@ -159,13 +163,13 @@
             this.txtDate.Location = new System.Drawing.Point(103, 71);
             this.txtDate.Name = "txtDate";
             this.txtDate.ReadOnly = true;
-            this.txtDate.Size = new System.Drawing.Size(409, 20);
+            this.txtDate.Size = new System.Drawing.Size(408, 20);
             this.txtDate.TabIndex = 12;
             // 
             // labFolder
             // 
             this.labFolder.AutoSize = true;
-            this.labFolder.Location = new System.Drawing.Point(42, 179);
+            this.labFolder.Location = new System.Drawing.Point(42, 205);
             this.labFolder.Name = "labFolder";
             this.labFolder.Size = new System.Drawing.Size(39, 13);
             this.labFolder.TabIndex = 15;
@@ -175,11 +179,41 @@
             // 
             this.txtFolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFolder.Location = new System.Drawing.Point(103, 176);
+            this.txtFolder.Location = new System.Drawing.Point(103, 202);
             this.txtFolder.Name = "txtFolder";
             this.txtFolder.ReadOnly = true;
-            this.txtFolder.Size = new System.Drawing.Size(409, 20);
+            this.txtFolder.Size = new System.Drawing.Size(408, 20);
             this.txtFolder.TabIndex = 14;
+            // 
+            // btnMerge
+            // 
+            this.btnMerge.Location = new System.Drawing.Point(184, 245);
+            this.btnMerge.Name = "btnMerge";
+            this.btnMerge.Size = new System.Drawing.Size(140, 23);
+            this.btnMerge.TabIndex = 16;
+            this.btnMerge.Text = "Merge Folders";
+            this.btnMerge.UseVisualStyleBackColor = true;
+            this.btnMerge.Visible = false;
+            this.btnMerge.Click += new System.EventHandler(this.btnMerge_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(33, 179);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Initial:";
+            // 
+            // txtInitial
+            // 
+            this.txtInitial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtInitial.Location = new System.Drawing.Point(103, 176);
+            this.txtInitial.Name = "txtInitial";
+            this.txtInitial.Size = new System.Drawing.Size(90, 20);
+            this.txtInitial.TabIndex = 18;
+            this.txtInitial.TextChanged += new System.EventHandler(this.txtInitial_TextChanged);
             // 
             // FrmNewFile
             // 
@@ -187,7 +221,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(524, 236);
+            this.ClientSize = new System.Drawing.Size(523, 280);
+            this.Controls.Add(this.txtInitial);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnMerge);
             this.Controls.Add(this.labFolder);
             this.Controls.Add(this.txtFolder);
             this.Controls.Add(this.label6);
@@ -202,6 +239,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -229,5 +267,8 @@
         private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.Label labFolder;
         private System.Windows.Forms.TextBox txtFolder;
+        private System.Windows.Forms.Button btnMerge;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtInitial;
     }
 }
