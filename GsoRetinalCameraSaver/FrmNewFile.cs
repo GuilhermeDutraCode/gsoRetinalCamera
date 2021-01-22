@@ -98,6 +98,7 @@ namespace GsoRetinalCameraSaver
                var Firstname = m.Groups["first"].Value;
                 Firstname = textInfo.ToTitleCase(Firstname);
                 var Lastname = m.Groups["last"].Value.ToUpper();
+                Lastname = textInfo.ToTitleCase(Lastname);
                 var Id = m.Groups["id"].Value;
                 var Created = new DateTime(int.Parse(m.Groups["year"].Value), int.Parse(m.Groups["month"].Value), int.Parse(m.Groups["day"].Value));
                 return new PatientName { Firstname = Firstname, Lastname = Lastname, Id = Id, Created = Created,Inital="" };
@@ -150,7 +151,7 @@ namespace GsoRetinalCameraSaver
             }
             if (!rv.Any())
             {
-                var patientfolder = $"{textInfo.ToTitleCase(cmbSurname.Text)}, {textInfo.ToTitleCase(cmbFirstname.Text)}"+(txtInitial.Text!=""?(" "+txtInitial.Text.Trim().ToUpper()):"");
+                var patientfolder = $"{textInfo.ToTitleCase(cmbSurname.Text.ToLower())}, {textInfo.ToTitleCase(cmbFirstname.Text)}"+(txtInitial.Text!=""?(" "+txtInitial.Text.Trim().ToUpper()):"");
                 var oath2 = Path.Combine(rootfolder, patientfolder);
                 rv.Add(new FolderName { Status = FolderStatus.New, Name = oath2 });
             }
