@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,7 +38,7 @@ namespace GsoRetinalCameraSaver
 
         public static IEnumerable<PatientName> GetExistingPatients()
         {
-            var folders = Directory.EnumerateDirectories(Properties.Settings.Default.FolderLocation);
+            var folders = Directory.EnumerateDirectories("R:\\");
             var rv = new List<PatientName>();
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
 
@@ -131,7 +132,7 @@ namespace GsoRetinalCameraSaver
         {
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
 
-            var rootfolder = Properties.Settings.Default.FolderLocation;
+            var rootfolder = "R:\\";
             var rv = new List<FolderName>();
             foreach(var _ in Directory.EnumerateDirectories(rootfolder))
             {
@@ -167,36 +168,64 @@ namespace GsoRetinalCameraSaver
         static Regex ManualFolderNameRegex = new Regex("^(?<surname>[a-zA-Z\\'\\-]+)[ ]*[\\,]?(?:(?:[ ]+)|(?:[ ]*[\\,][ ]*))(?<firstname>[a-zA-Z\\'\\-]+)(?:[ ]+(?<initial>.*))?$");
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-            if (cmbFirstname.Text.Trim() == "")
+            try
             {
-                MessageBox.Show("You must enter a firstname");
-                return;
+                if (cmbFirstname.Text.Trim() == "")
+                {
+                    MessageBox.Show("You must enter a firstname");
+                    return;
+                }
+                if (cmbSurname.Text.Trim() == "")
+                {
+                    MessageBox.Show("You must enter a surname");
+                    return;
+                }
+
+                var patientFolder = GetPatientFolderName();
+
+
+
+
+
+                if (!Directory.Exists(patientFolder.Name)) Directory.CreateDirectory(patientFolder.Name);
+                var datefolder = Patient.Created.ToString("dd-MM-yyyy");
+                var oath = Path.Combine(patientFolder.Name, datefolder);
+                if (!Directory.Exists(oath)) Directory.CreateDirectory(oath);
+                oath = Path.Combine(oath, FileInfo.Name);
+                if (File.Exists(oath))
+                {
+                    var result = MessageBox.Show(this, "A file with this name already exists in this location. Click 'Yes' to replace this file, 'No' to delete the new file, or 'Cancel' to ignore.", "File already exists", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    switch (result)
+                    {
+                        case DialogResult.Yes:
+                            File.Delete(oath);
+                            Thread.Sleep(1000);
+                            File.Move(FileInfo.FullName, oath);
+                            break;
+                        case DialogResult.No:
+                            File.Delete(FileInfo.FullName);
+                            Thread.Sleep(1000);
+                            break;
+                        case DialogResult.Cancel:
+                            break;
+                    }
+                    return;
+                }
+                else
+                {
+                    File.Move(FileInfo.FullName, oath);
+                }
             }
-            if (cmbSurname.Text.Trim() == "")
+            catch(Exception ex)
             {
-                MessageBox.Show("You must enter a surname");
-                return;
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK);
             }
-
-            var patientFolder = GetPatientFolderName();
-
-
-
-
-
-            if (!Directory.Exists(patientFolder.Name)) Directory.CreateDirectory(patientFolder.Name);
-            var datefolder = Patient.Created.ToString("dd-MM-yyyy");
-            var oath = Path.Combine(patientFolder.Name, datefolder);
-            if (!Directory.Exists(oath)) Directory.CreateDirectory(oath);
-            oath = Path.Combine(oath, FileInfo.Name);
-            if (File.Exists(oath))
+            finally
             {
-                MessageBox.Show(this,"A file with this name already exists in this location.", "File already exists", MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                return;
+
+                Close();
             }
-            FileInfo.MoveTo(oath);
-            Close();
+
         }
         void UpdateFolder()
         {
@@ -284,7 +313,7 @@ namespace GsoRetinalCameraSaver
         }
         private void btnMerge_Click(object sender, EventArgs e)
         {
-            var rootfolder = Properties.Settings.Default.FolderLocation;
+            var rootfolder = "R:\\"; 
             var tmpfolder = Path.Combine(rootfolder, Guid.NewGuid().ToString());
 
             Directory.CreateDirectory(tmpfolder);

@@ -22,17 +22,5 @@ namespace GsoRetinalCameraSaver.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string FolderLocation {
-            get {
-                return ((string)(this["FolderLocation"]));
-            }
-            set {
-                this["FolderLocation"] = value;
-            }
-        }
     }
 }

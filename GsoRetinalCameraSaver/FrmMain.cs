@@ -20,16 +20,16 @@ namespace GsoRetinalCameraSaver
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            var hasFoundFolder = false;
+            /*var hasFoundFolder = false;
             while (!hasFoundFolder)
             {
-                if (string.IsNullOrWhiteSpace(Properties.Settings.Default.FolderLocation))
+                if (string.IsNullOrWhiteSpace("R:\\"))
                 {
                     var d = new FolderBrowserDialog();
                     d.Description = "Select folder to monitor...";
                     if (d.ShowDialog() == DialogResult.OK)
                     {
-                        Properties.Settings.Default.FolderLocation = d.SelectedPath;
+                        //Properties.Settings.Default.FolderLocation = d.SelectedPath;
                         Properties.Settings.Default.Save();
                     }
                     else if(d.ShowDialog()== DialogResult.Cancel)
@@ -38,7 +38,7 @@ namespace GsoRetinalCameraSaver
                         return;
                     }
                 }
-                if (Directory.Exists(Properties.Settings.Default.FolderLocation))
+                if (Directory.Exists("R:\\"))
                 {
                     hasFoundFolder = true;
                 }
@@ -46,8 +46,8 @@ namespace GsoRetinalCameraSaver
                 {
                     MessageBox.Show(this,"The folder is not valid, select another location", "Invalid Folder", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            fileWatch.Path = Properties.Settings.Default.FolderLocation;
+            }*/
+            fileWatch.Path = "R:\\";
             fileWatch.Created += FileWatch_Created;
 
 
@@ -66,8 +66,10 @@ namespace GsoRetinalCameraSaver
         {
             Hide();
             tmrHide.Stop();
-            foreach(var _ in Directory.EnumerateFiles(Properties.Settings.Default.FolderLocation))
+            var loc = "R:\\";
+            foreach (var _ in Directory.EnumerateFiles(loc))
             {
+                if (_.EndsWith(".db")) continue;
                 var wnd = new FrmNewFile(_);
                 wnd.TopMost = true;
                 wnd.ShowDialog(this);
