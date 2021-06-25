@@ -66,14 +66,8 @@ namespace GsoRetinalCameraSaver
         {
             Hide();
             tmrHide.Stop();
-            var loc = "R:\\";
-            foreach (var _ in Directory.EnumerateFiles(loc))
-            {
-                if (_.EndsWith(".db")) continue;
-                var wnd = new FrmNewFile(_);
-                wnd.TopMost = true;
-                wnd.ShowDialog(this);
-            }
+            Program.ScanDrive();
+            
         }
 
         private void fileWatch_Changed(object sender, FileSystemEventArgs e)

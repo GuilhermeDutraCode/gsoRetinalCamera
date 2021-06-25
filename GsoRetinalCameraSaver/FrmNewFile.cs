@@ -223,7 +223,7 @@ namespace GsoRetinalCameraSaver
             finally
             {
 
-                Close();
+                Application.Exit();
             }
 
         }

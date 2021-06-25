@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,7 +19,21 @@ namespace GsoRetinalCameraSaver
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Thread.Sleep(10 * 1000);
-            Application.Run(new FrmMain());
+            _frm = new FrmMain();
+            Application.Run(_frm);
+        }
+        static FrmMain _frm;
+
+        public static void ScanDrive()
+        {
+            var loc = "R:\\";
+            foreach (var _ in Directory.EnumerateFiles(loc))
+            {
+                if (_.EndsWith(".db")) continue;
+                var wnd = new FrmNewFile(_);
+                wnd.TopMost = true;
+                wnd.ShowDialog(_frm);
+            }
         }
     }
 }

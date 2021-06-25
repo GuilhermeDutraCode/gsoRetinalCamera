@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tmrHide = new System.Windows.Forms.Timer(this.components);
             this.fileWatch = new System.IO.FileSystemWatcher();
+            this.tmrScan = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileWatch)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +71,11 @@
             this.fileWatch.SynchronizingObject = this;
             this.fileWatch.Changed += new System.IO.FileSystemEventHandler(this.fileWatch_Changed);
             // 
+            // tmrScan
+            // 
+            this.tmrScan.Enabled = true;
+            this.tmrScan.Interval = 600000;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,6 +106,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer tmrHide;
         private System.IO.FileSystemWatcher fileWatch;
+        private System.Windows.Forms.Timer tmrScan;
     }
 }
 
