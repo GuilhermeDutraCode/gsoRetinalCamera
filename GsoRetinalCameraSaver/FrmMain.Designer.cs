@@ -74,7 +74,8 @@
             // tmrScan
             // 
             this.tmrScan.Enabled = true;
-            this.tmrScan.Interval = 600000;
+            this.tmrScan.Interval = 60000;
+            this.tmrScan.Tick += new System.EventHandler(this.tmrScan_Tick);
             // 
             // FrmMain
             // 

@@ -20,3 +20,14 @@ C:\Users\mhogan\source\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Debug\Gso
 C:\Users\mhogan\source\GsoRetinalCameraSaver\GsoRetinalCameraSaver\bin\Debug\GsoRetinalCameraSaver.exe.config
 C:\Users\mhogan\source\GsoRetinalCameraSaver\GsoRetinalCameraSaver\bin\Debug\GsoRetinalCameraSaver.exe
 C:\Users\mhogan\source\GsoRetinalCameraSaver\GsoRetinalCameraSaver\bin\Debug\GsoRetinalCameraSaver.pdb
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Debug\GsoRetinalCameraSaver.csproj.AssemblyReference.cache
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\bin\Debug\GsoRetinalCameraSaver.exe.config
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\bin\Debug\GsoRetinalCameraSaver.exe
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\bin\Debug\GsoRetinalCameraSaver.pdb
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Debug\GsoRetinalCameraSaver.FrmMain.resources
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Debug\GsoRetinalCameraSaver.FrmNewFile.resources
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Debug\GsoRetinalCameraSaver.Properties.Resources.resources
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Debug\GsoRetinalCameraSaver.csproj.GenerateResource.cache
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Debug\GsoRetinalCameraSaver.csproj.CoreCompileInputs.cache
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Debug\GsoRetinalCameraSaver.exe
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Debug\GsoRetinalCameraSaver.pdb

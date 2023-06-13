@@ -13,6 +13,8 @@ namespace GsoRetinalCameraSaver
 {
     public partial class FrmMain : Form
     {
+
+        static int count = 0; 
         public FrmMain()
         {
             InitializeComponent();
@@ -47,10 +49,17 @@ namespace GsoRetinalCameraSaver
                     MessageBox.Show(this,"The folder is not valid, select another location", "Invalid Folder", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }*/
+
+
             fileWatch.Path = "R:\\";
+
+
+            //fileWatch.Path = "C:\\test\\";
+            if (count > 1) return;
             fileWatch.Created += FileWatch_Created;
+            count++;
 
-
+            Console.WriteLine("========>>>>" + count);
         }
 
         private void FileWatch_Created(object sender, FileSystemEventArgs e)
@@ -67,12 +76,17 @@ namespace GsoRetinalCameraSaver
             Hide();
             tmrHide.Stop();
             Program.ScanDrive();
-            
+           
         }
 
         private void fileWatch_Changed(object sender, FileSystemEventArgs e)
         {
            
+        }
+
+        private void tmrScan_Tick(object sender, EventArgs e)
+        {
+            Program.ScanDrive();
         }
     }
 }

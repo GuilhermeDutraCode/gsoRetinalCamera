@@ -1,0 +1,11 @@
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\bin\Release\GsoRetinalCameraSaver.exe.config
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\bin\Release\GsoRetinalCameraSaver.exe
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\bin\Release\GsoRetinalCameraSaver.pdb
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Release\GsoRetinalCameraSaver.csproj.AssemblyReference.cache
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Release\GsoRetinalCameraSaver.FrmMain.resources
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Release\GsoRetinalCameraSaver.FrmNewFile.resources
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Release\GsoRetinalCameraSaver.Properties.Resources.resources
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Release\GsoRetinalCameraSaver.csproj.GenerateResource.cache
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Release\GsoRetinalCameraSaver.csproj.CoreCompileInputs.cache
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Release\GsoRetinalCameraSaver.exe
+C:\Users\gdutra\Desktop\GsoRetinalCameraSaver\GsoRetinalCameraSaver\obj\Release\GsoRetinalCameraSaver.pdb

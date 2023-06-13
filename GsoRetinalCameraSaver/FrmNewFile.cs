@@ -38,6 +38,7 @@ namespace GsoRetinalCameraSaver
 
         public static IEnumerable<PatientName> GetExistingPatients()
         {
+            //var folders = Directory.EnumerateDirectories(@"C:\test\");
             var folders = Directory.EnumerateDirectories("R:\\");
             var rv = new List<PatientName>();
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
@@ -115,8 +116,23 @@ namespace GsoRetinalCameraSaver
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            try
+            {
+                if (File.Exists(Filename))
+                {
+                    File.Delete(Filename);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while deleting the file: {ex.Message}", "Error", MessageBoxButtons.OK);
+            }
+            finally
+            {
+                Close();
+            }
         }
+
         enum FolderStatus
         {
             New,
@@ -133,6 +149,7 @@ namespace GsoRetinalCameraSaver
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
 
             var rootfolder = "R:\\";
+            //var rootfolder = @"C:\test\";
             var rv = new List<FolderName>();
             foreach(var _ in Directory.EnumerateDirectories(rootfolder))
             {
@@ -222,8 +239,8 @@ namespace GsoRetinalCameraSaver
             }
             finally
             {
-
-                Application.Exit();
+                Close();
+                //Application.Exit();
             }
 
         }
